@@ -6,13 +6,13 @@
 	?>
 
 	<link rel="stylesheet" href="css/produto.css">
-	
+	<div class="produto-back">
 	<div class="container">
 	<div class="produto">
 		<h1>Fuzzy Cardigan</h1>
 		<p>por apenas R$ 129,00</p>
 
-		<form>
+		<form action="checkout.php" method="POST">
 			<fieldset class="cores">
 				<legend>Escolha a cor:</legend>
 
@@ -38,6 +38,9 @@
 				<input type="rage" name="tamanho" min="36" max="46" value="42" step="2">
 			</fieldset>
 
+			<input type="hidden" name="nome" value="Fuzzy Cardigan">
+			<input type="hidden" name="preco" value="129.00">
+
 			<input type="submit" class="comprar" name="Comprar">
 		</form>
 	</div>
@@ -45,6 +48,34 @@
 		<h2>Detalhes do produto</h2>
 
 		<p>Esse é o melhor casaco de Cardigã que você já viu. Excelente material italiano com estampa desenhada pelos artesãos da comunidade de Krotor nas ilhas gregas. Compre já e receba hoje mesmo pela nossa entrega a jato.</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Característica</th>
+					<th>Detalhe</th>
+				</tr>
+				<tbody>
+					<tr>
+						<td>Modelo</td>
+						<td>Cardigã 7845</td>
+					</tr>
+					<tr>
+						<td>Material</td>
+						<td>Algodão e poliester</td>
+					</tr>
+					<tr>
+						<td>Cores</td>
+						<td>Azul, Rosa e Verde</td>
+					</tr>
+					<tr>
+						<td>Lavagem</td>
+						<td>Lavar a mão</td>
+					</tr>
+				</tbody>
+			</thead>
+		</table>
+	</div>
 	</div>
 	</div>
 	<?php include("rodape.php"); ?>
