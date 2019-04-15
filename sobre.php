@@ -2,10 +2,10 @@
 
 	<!-- início do texto da Mirror Fashion-->
 <?php 
-$cabecalho_title = "Sobre Mirror Fashion"
+$cabecalho_title = "Sobre Mirror Fashion";
 include("cabecalho.php"); 
 ?>
-
+<link rel="stylesheet" type="text/css" href="css/sobre.css">
 <h1>A Mirror Fashion</h1>
 
 <p>A <strong>Mirror Fashion</strong> é a maior empresa comércio eletrônico no segmento de moda em todo o mundo. 
@@ -59,12 +59,10 @@ Fashion, além de presidentes da União Européia, Ásia e o secretário-geral d
 	<li>Menor preço do varejo, garantido</li>
 	<li>se você achar uma loja mais barata, leva o produto de graça</li>
 </ul>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/Tb06abHE4hY"
+frameborder="0" allowfullscreen></iframe>
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2938765074177!2d-43.17831768548497!3d-22.90252898501401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f5f371c4e59%3A0x9938d55dca1fbf51!2sCaelum+-+Ensino+e+Inova%C3%A7%C3%A3o!5e0!3m2!1spt-BR!2sus!4v1555265190584!5m2!1spt-BR!2sus" width="425" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 <!-- Rodapé inicio -->
 
 <?php include("rodape.php"); ?>
-<div id="rodape">
-	<img src="img/logo.png">
-
-	&copy; Copyrigth Mirror Fashion
-</div>

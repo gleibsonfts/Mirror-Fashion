@@ -1,3 +1,9 @@
+	<?php
+		$conexao = mysqli_connect("127.0.0.1", "root", "0105bnx55kl", "WD43");
+		$dados = mysqli_query($conexao, "SELECT * FROM produtos WHERE id $_GET[id]");
+		$produto =mysqli_fetch_array($dados);
+	?>
+
 
 	<?php 
 	$cabecalho_title = "Produto da Mirror Fashion";
@@ -9,8 +15,8 @@
 	<div class="produto-back">
 	<div class="container">
 	<div class="produto">
-		<h1>Fuzzy Cardigan</h1>
-		<p>por apenas R$ 129,00</p>
+		<h1><?= $produto['nome'] ?></h1>
+		<p>por apenas <?= $produto['preco'] ?></p>
 
 		<form action="checkout.php" method="POST">
 			<fieldset class="cores">
@@ -18,24 +24,25 @@
 
 				<input type="radio" name="cor" value="verde" id="verde" checked>
 				<label for="verde">
-					<img src="img/produtos/foto2-verde.png" alt="verde">
+					<img src="img/produtos/foto<?= $produto['id'] ?>-verde.png" alt="verde">
 				</label>
 
 				<input type="radio" name="cor" value="rosa" id="rosa">
 				<label for="rosa">
-					<img src="img/produtos/foto2-rosa.png" alt="rosa">
+					<img src="img/produtos/foto<?= $produto['id'] ?>-rosa.png" alt="rosa">
 				</label>
 
 				<input type="radio" name="cor" value="azul" id="azul">
 				<label for="azul">
-					<img src="img/produtos/foto2-azul.png" alt="azul">
+					<img src="img/produtos/foto<?= $produto['id'] ?>-azul.png" alt="azul">
 				</label>
 
 			</fieldset>
 
 			<fieldset class="tamanhos">
 				<legend>Escolha o tamanho:</legend>
-				<input type="rage" name="tamanho" min="36" max="46" value="42" step="2">
+				<input type="range" name="tamanho" min="36" max="46" value="42" step="2">
+				<output for="tamaho" name="valortamanho">42</output>
 			</fieldset>
 
 			<input type="hidden" name="nome" value="Fuzzy Cardigan">
@@ -47,7 +54,7 @@
 	<div class="detalhes">
 		<h2>Detalhes do produto</h2>
 
-		<p>Esse é o melhor casaco de Cardigã que você já viu. Excelente material italiano com estampa desenhada pelos artesãos da comunidade de Krotor nas ilhas gregas. Compre já e receba hoje mesmo pela nossa entrega a jato.</p>
+		<p><?= $produto['descricao'] ?></p>
 
 		<table>
 			<thead>
@@ -58,7 +65,7 @@
 				<tbody>
 					<tr>
 						<td>Modelo</td>
-						<td>Cardigã 7845</td>
+						<td>Cardigan 7845</td>
 					</tr>
 					<tr>
 						<td>Material</td>
@@ -78,4 +85,6 @@
 	</div>
 	</div>
 	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/produto.js"></script>
 	<?php include("rodape.php"); ?>

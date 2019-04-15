@@ -4,7 +4,8 @@
 	$cabecalho_title = "Mirror Fashion";
 	include("cabecalho.php"); 
 	?>
-
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans|Bad+Script'
+rel='stylesheet'>
 	<div class="container destaque">
 		<section class="busca">
 			<h2>Busca</h2>
@@ -48,51 +49,27 @@
 		<section class="painel novidades">
 			<h2>Novidades</h2>
 			<ol>
-				<li><a href="#">
-					<figure>
-						<img src="img/produtos/miniatura7.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
+				<?php
+					$conexao= mysqli_connect("127.0.0.1", "root", "0105bnx55kl", "WD43");
+					$dados = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY data DESC LIMIT 0, 12");
 
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura2.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
+					while ($produto = mysqli_fetch_array($dados)):
 
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura3.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
+				?>
+				<li>
+					<a href="produto.php?id=<?= $produto['id'] ?>">
+						<figure>
+							<img src="img/produtos/miniatura<?= $produto['id'] ?>.png" alt="<?= produto['nome'] ?>">
+							<figcaption><?= $produto['nome'] ?> por <?= $produto['preco'] ?></figcaption>
+						</figure>
+					</a>
+				</li>
 
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
-
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
-
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
-
+			<?php endwhile; ?>
 			</ol>
+			<button type="button">Mostra mais</button>
 		</section>
-	
+		
 
 	<!-- fim do painel novidade -->
 
@@ -100,53 +77,35 @@
 		<section class="painel mais-vendidos">
 			<h2>Mais Vendidos</h2>
 			<ol>
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
+				<?php
+					$conexao= mysqli_connect("127.0.0.1", "root", "0105bnx55kl", "WD43");
+					$dados = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY vendas DESC LIMIT 0, 12");
 
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
+					while ($produto = mysqli_fetch_array($dados)):
 
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
+				?>
+				<li>
+					<a href="produto.php?id=<?= $produto['id'] ?>">
+						<figure>
+							<img src="img/produtos/miniatura<?= $produto['id'] ?>.png" alt="<?= produto['nome'] ?>">
+							<figcaption><?= $produto['nome'] ?> por <?= $produto['preco'] ?></figcaption>
+						</figure>
+					</a>
+				</li>
 
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
-
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
-
-				<li><a href="produto.html">
-					<figure>
-						<img src="img/produtos/miniatura1.png">
-						<figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
-					</figure>
-				</a></li>
-
+			<?php endwhile; ?>
 			</ol>
+				
+			<button type="button">Mostra mais</button>
 		</section>
+		
 	</div>
 
 	<!-- fim do painel mais vendidos -->
 
+	<script src="js/jquery.js"></script>
+	<script src="js/home.js"></script>
+	<script src="js/converteMoeda.js"></script>
+	<script src="js/testaConversao.js"></script>
 	<?php include("rodape.php"); ?>
 
